@@ -1,0 +1,24 @@
+name: push_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.4 <4.0.0'
+
+dependencies:
+  equatable: ^2.0.5
+  firebase_core: ^2.27.0
+  firebase_messaging: ^14.7.19
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.5
+  go_router: ^14.0.2
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
