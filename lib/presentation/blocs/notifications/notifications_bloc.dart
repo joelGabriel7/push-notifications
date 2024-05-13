@@ -16,7 +16,6 @@ Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // make sure you call `initializeApp` before using other Firebase services.
   await Firebase.initializeApp();
 
-  debugPrint("Handling a background message: ${message.messageId}");
 }
 
 class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
@@ -58,7 +57,7 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
   void _getFCMToken() async {
     if (state.status != AuthorizationStatus.authorized) return;
     final token = await messaging.getToken();
-    print('TOKEN: $token');
+    debugPrint('TOKEN: $token');
   }
 
   void handleRemoteMessage(RemoteMessage message) {
@@ -85,8 +84,6 @@ class NotificationsBloc extends Bloc<NotificationsEvent, NotificationsState> {
       data: notifications.messagID
     );
     }
-    debugPrint('Message id has code: ${message.messageId.hashCode}');
-    debugPrint('Message: ${message.messageId}');
 
     add(NotificationsRecevied(notifications));
   }
